@@ -1,0 +1,31 @@
+<h1 id="designdocument">Design Document</h1>
+
+<h4 id="architecture">Architecture -</h4>
+
+<ul>
+<li>The Search Engine consists of two Python scripts - preprocess.py and search.py</li>
+
+<li>preprocess.py is a single run script that generates two files which consist of relevant data extracted from the corpus.</li>
+
+<li>search.py is the primary script, and is used to run the actual application.</li>
+</ul>
+
+<h4 id="datastructuresused">Data Structures Used -</h4>
+
+<p>The majorly used data structures are:</p>
+
+<ul>
+<li><b>Lists</b> - can be considered linear, random access arrays, used for general purpose storage.</li>
+
+<li><b>Dictionaries</b> - these are implemented in Python as Hash Maps, and so offer fast searching and mapping of information, and hence were very useful in the project.</li>
+
+<li><b>Sets</b> - these are implemented in Python as a mix of Binary Search Trees and Hash Sets. These were used instead of lists in places where either unique elements or fast (Average O(1)) searching was required.</li>
+</ul>
+
+<h4 id="runningtime">Running Time -</h4>
+
+<ul>
+<li>The preprocessing script has to process two files (~400 MB) - msd_summary_file.h5 and mxm_dataset_train.txt and extract ~10 MB of relevant processed data from it. The overall asymptotic runtime of the script is O(N * log(M)) at the worst, and O(N) at best. Here, N = 1,000,000 objects and M = 210,000 objects. Reading files into data structures and calculations, however, cause the actual runtime to be inflated. This leads to a runtime of &lt; 10 minutes on modern computers.</li>
+
+<li>The search script has to initially load all the (~10 MB) of preprocessed data and the lyrics database (~98 MB) into memory and organize it into data structures. This loading phase takes around 15 seconds on modern computers. An unlimited number of searches can then be made once the application is ready. All searches return a result in a fraction of a second, since all the operations are O(N) or lesser, where N &lt; 210,000 objects.</li>
+</ul>
