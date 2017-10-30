@@ -1,11 +1,11 @@
 '''
 This is the module which performs the core functionality of the
 Lyrics Search Engine. It runs in the form of a Tkinter based GUI
-and takes as input a text query consisting of fragmented, 
+and takes as input a text query consisting of fragmented,
 incomplete lyrics, and gives as output a list of at most 10
 Artist-Song Title pairs, ranked in order of most similar to least
 similar. There is an initial loading time of approximately 10 seconds,
-but all successive searches are performed almost instaneously.
+but all successive searches are performed almost instantaneously.
 
 Author: Kushal Agrawal
 Date of Completion: 30/09/2017
@@ -14,6 +14,7 @@ Date of Completion: 30/09/2017
 import math
 from stemming.porter2 import stem
 import tkinter as tk
+
 
 class SearchEngine(tk.Frame):
 	'''
@@ -29,7 +30,8 @@ class SearchEngine(tk.Frame):
 		self.grid()
 		self.configureGrid()
 		self.createWidgets()
-		self.setMessage('Loading more than 210,000 song lyrics into memory, please be patient...')
+		self.setMessage('Loading more than 210000 song lyrics into memory, please
+		                be patient...')
 
 	def configureGrid(self):
 		''' Configure the Tkinter grid layout. '''
@@ -340,7 +342,7 @@ class SearchEngine(tk.Frame):
 				msg_string += str(counter) + ". " + metadata[0] + " - " + metadata[1] + '\n'
 				counter += 1
 
-		# Set the message 
+		# Set the message
 		self.setMessage(msg_string)
 
 	#############################################
