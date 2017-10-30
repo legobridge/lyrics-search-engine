@@ -30,7 +30,7 @@ class SearchEngine(tk.Frame):
 		self.grid()
 		self.configureGrid()
 		self.createWidgets()
-		self.setMessage('Loading more than 210000 song lyrics into memory, please
+		self.setMessage('Loading more than 210,000 song lyrics into memory, please
 		                be patient...')
 
 	def configureGrid(self):
